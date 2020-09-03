@@ -1,0 +1,61 @@
+.questions {
+  background-image: url("../assets/images/decorative/broccoli_desktop.png");
+  background-position: right top 338px;
+  background-repeat: no-repeat;
+  padding-bottom: 150px;
+  padding-top: 149px;
+
+  @media (max-width: $screen-tablet-max-width) {
+    background-image: url("../assets/images/decorative/broccoli_tablet.png");
+    background-position: right -10px top 5px;
+    padding-top: 170px;
+  }
+
+  @media (max-width: $screen-phone-max-width) {
+    background-image: url("../assets/images/decorative/broccoli_mobile.png");
+    background-position: right 2px top 25px;
+    padding-top: 200px;
+  }
+
+  &__heading-primary {
+    color: $c-questions-title;
+    font-size: 130px;
+    font-weight: 800;
+    line-height: 153px;
+    margin-bottom: 13px;
+    margin-top: 0;
+    padding-right: 268px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (max-width: $screen-tablet-max-width) {
+      font-size: 80px;
+      line-height: 94px;
+      margin-bottom: 30px;
+      padding-right: 0;
+    }
+
+    @media (max-width: $screen-phone-max-width) {
+      font-size: 30px;
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__heading {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 35px;
+    margin-bottom: 30px;
+    margin-top: 0;
+    padding-right: 268px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (max-width: $screen-tablet-max-width) {
+      font-size: 20px;
+      line-height: 23px;
+      padding-right: 0;
+    }
+  }
+}

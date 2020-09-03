@@ -1,0 +1,121 @@
+.accordion {
+  @include reset-list;
+
+  padding-top: 45px;
+  width: 675px;
+
+  @media (max-width: $screen-tablet-max-width) {
+    padding-top: 16px;
+    width: 90%;
+  }
+
+  @media (max-width: $screen-phone-max-width) {
+    padding-top: 17px;
+  }
+
+  &__item {
+    margin-bottom: 45px;
+    max-width: 100%;
+  }
+
+  &__icon {
+    fill: $c-button-border;
+    left: 21px;
+    position: absolute;
+    top: 21px;
+    transition: transform $time-button-transition cubic-bezier(.1, -.5, .5, 1.5);
+    z-index: $z-accordion-icon;
+
+    @media (max-width: $screen-phone-max-width) {
+      height: 24px;
+      left: 18px;
+      top: 18px;
+      width: 24px;
+    }
+  }
+
+  &__button {
+    align-items: center;
+    background-color: $c-button-bg;
+    border: 1px solid $c-button-border;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    margin-right: 30px;
+    min-width: 70px;
+    width: 70px;
+
+    @media (max-width: $screen-phone-max-width) {
+      height: 60px;
+      min-width: 60px;
+      width: 60px;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0 5px $c-button-shadow);
+
+      + .accordion__icon {
+        filter: drop-shadow(2px 2px 10px $c-button-plus-shadow);
+      }
+    }
+  }
+
+  &__inner {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity $time-inner-opacity linear, height $time-inner-max-height ease-out;
+    will-change: opacity, height;
+  }
+
+  &__title {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &[aria-expanded='true'] {
+      .accordion__button {
+        background: $c-gradient-button-bg-active;
+        border-width: .2px;
+        filter: none;
+      }
+
+      .accordion__icon {
+        fill: $c-button-icon-bg-active;
+        filter: none;
+        transform: rotate(225deg);
+        z-index: $z-accordion-icon-active;
+      }
+
+      + .accordion__inner {
+        max-height: fit-content;
+        opacity: 1;
+        will-change: opacity, height;
+      }
+    }
+  }
+
+  &__text {
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding-left: 100px;
+
+    &:last-child {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__text-highlighting {
+    color: $c-accordion-text-highlighting;
+    font-weight: bold;
+  }
+}
